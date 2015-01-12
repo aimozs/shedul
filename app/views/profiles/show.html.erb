@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+	<div class="col-md-6">
+		<div class="panel panel-default">
+			<div class="panel panel-heading"  type="button" data-toggle="collapse" data-target="#tableStaff" aria-expanded="false" aria-controls="collapseExample">
+				Staff
+			</div>
+			<div class="panel-body" id="tableStaff">
+			<%= render 'staffs/form' %>
+			<table class="table">
+				<tr>
+					<td>Rank</td>
+					<td>Name</td>
+					<td>Email</td>
+				</tr>
+		  		<% @staffs.each do |staff| %>
+			  		<tr>
+						<td><%= staff.id %></td>
+						<td><%= staff.first_name %></td>
+						<td><%= staff.email %></td>
+					</tr>
+		  		<% end %>
+	  		</table>
+	  		</div>
+  		</div>
+  	</div>
+  	<div class="col-md-6">
+  		<%= render "positions/form" %>
+		List of the positions:
+		<ul>
+	  		<% @positions.each do |position| %>
+				<li><%= position.name %></li>
+	  		<% end %>
+  		</ul>
+  	</div>
+</div>

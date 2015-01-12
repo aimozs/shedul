@@ -1,0 +1,21 @@
+<div class="navbar navbar-static-top">
+	<div>
+		<%= link_to 'Shedul', root_path, class:'btn' %>
+		<span class="pull-right">
+			<% if !user_signed_in? %>
+				<%= link_to 'Sign in', new_user_session_path, class:'btn' %>
+			<% else %>
+				<% if current_user.profile %>
+					<%= link_to current_user.profile.first_name, profile_path(current_user.profile), class:'btn' %>
+					<% if current_user.profile.link_photo %>
+						<%= image_tag current_user.profile.link_photo, width:'50px', class:'img-circle' %>
+					<% else %>
+						<%= image_tag 'profile_pic.png', width:'50px', class:'img-circle' %>
+					<% end %>
+				<% else %>
+					<%= link_to 'My profile', new_profile_path, class:'btn' %>
+				<% end %>
+			<% end %>
+		</span>
+	</div>
+<div>
